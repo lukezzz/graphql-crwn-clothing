@@ -1,15 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
-import {
-  clearItemFromCart,
-  addItem,
-  removeItem
-} from '../../redux/cart/cart.actions';
+// import {
+//   clearItemFromCart,
+//   addItem,
+//   removeItem
+// } from '../../redux/cart/cart.actions';
 
 import './checkout-item.styles.scss';
 
 const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
+  console.log(cartItem)
   const { name, imageUrl, price, quantity } = cartItem;
   return (
     <div className='checkout-item'>
@@ -34,13 +35,15 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  clearItem: item => dispatch(clearItemFromCart(item)),
-  addItem: item => dispatch(addItem(item)),
-  removeItem: item => dispatch(removeItem(item))
-});
+// const mapDispatchToProps = dispatch => ({
+//   clearItem: item => dispatch(clearItemFromCart(item)),
+//   addItem: item => dispatch(addItem(item)),
+//   removeItem: item => dispatch(removeItem(item))
+// });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(CheckoutItem);
+// export default connect(
+//   null,
+//   mapDispatchToProps
+// )(CheckoutItem);
+
+export default CheckoutItem

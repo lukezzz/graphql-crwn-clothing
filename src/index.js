@@ -7,7 +7,7 @@ import { ApolloProvider } from 'react-apollo'
 import { createHttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloClient, gql } from 'apollo-boost'
-
+import { default as data } from './graphql/initial-data';
 import { resolvers, typeDefs } from './graphql/resolvers'
 
 import { store, persistor } from './redux/store';
@@ -45,13 +45,7 @@ const client = new ApolloClient({
 //   `
 // }).then(res => console.log(res))
 
-client.writeData({
-  data: {
-    cartHidden: true,
-    cartItems: [],
-    itemCount: 0
-  }
-})
+client.writeData({ data })
 
 ReactDOM.render(
   <ApolloProvider client={client}>
